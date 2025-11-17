@@ -8,10 +8,11 @@ generator client {
 }
 
 model User {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  username    String @unique
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  username    String  @unique
   displayName String
   password    String
+  online      Boolean @default(false)
 }
 
 model Message {
@@ -19,5 +20,6 @@ model Message {
   from      String
   to        String
   text      String
+  status    String   @default("sent")
   createdAt DateTime @default(now())
 }
